@@ -18,7 +18,7 @@ var todos = [
 	},
 	{
 		id:3,
-		description:'Go for lunch',
+		description:'Deposit money in the bank',
 		completed:true
 	}
 ];
@@ -33,10 +33,11 @@ app.get('/todos',function(req,res){
 
 //get /todos/:id
 app.get('/todos/:id',function(req,res){
-	//res.send("Success");
-	//console.log(req.params.id);
+
 	var id = parseInt(req.params.id,10);
+	
 	var matchedtoDo;
+	
 	todos.forEach(function(todo){
 		if(todo.id === id){
 			matchedtoDo = todo;
@@ -49,13 +50,7 @@ app.get('/todos/:id',function(req,res){
 	else{
 		res.status(404).send();
 	}
-	/*if(id >= 0 && id < todos.length)
-	{
-		res.json(todos[id]);
-	}
-	else{
-		res.status(404).send();
-	}*/
+	
 });
 
 
